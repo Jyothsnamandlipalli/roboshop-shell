@@ -28,12 +28,9 @@ echo -e "\e[36m>>>>>>>>> Start Catalogue Service <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl restart catalogue
-
-echo -e "\e[36m>>>>>>>>> Copy MongoDB repo <<<<<<<<\e[0m"
-cp /home/centos/roboshop-shell /mongo.repo/etc/yum.repos.d/mongo.repo
-
-echo -e "\e[36m>>>>>>>>> Install MongoDB Client <<<<<<<<\e[0m"
+echo -e "\e[36m>>>>>>>>> mongodb repo <<<<<<<<\e[0m"
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+echo -e "\e[36m>>>>>>>>> mongodb install<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
-
-echo -e "\e[36m>>>>>>>>> Load Schema <<<<<<<<\e[0m"
-mongo --host mongodb-dev.jodevops.online </app/schema/catalogue.js
+echo -e "\e[36m>>>>>>>>> load schema <<<<<<<<\e[0m"
+mongo --host 172.31.30.198 </app/schema/catalogue.js
