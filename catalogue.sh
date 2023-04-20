@@ -10,7 +10,10 @@ yum install nodejs -y
 
 echo -e "\e[36m>>>>>>>>> Add Application User <<<<<<<<\e[0m"
 id ${app_user}
-if [ $?  -ne 0]; then
+# shellcheck disable=SC1009
+# shellcheck disable=SC1073
+if [ $?  -ne 0]
+then
   useradd ${app_user}
 fi
 
