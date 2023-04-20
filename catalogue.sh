@@ -1,6 +1,6 @@
 script=$(realpath "$0")
 script_path=$(dirname "$script")
-#source "${script_path}"/common.sh
+source "${script_path}"/common.sh
 
 echo -e "\e[36m>>>>>>>>> Configuring NodeJS repos <<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
@@ -9,14 +9,13 @@ echo -e "\e[36m>>>>>>>>> Install NodeJS <<<<<<<<\e[0m"
 yum install nodejs -y
 
 echo -e "\e[36m>>>>>>>>> Add Application User <<<<<<<<\e[0m"
-id ${app_user}
+
 # shellcheck disable=SC1009
 # shellcheck disable=SC1073
-if [ $?  -ne 0]
-then
-  useradd ${app_user}
-fi
-
+ id ${app_user}
+  if [ $? -ne 0 ]; then
+    useradd ${app_user}
+  fi
 
 echo -e "\e[36m>>>>>>>>> Create Application Directory <<<<<<<<\e[0m"
 rm -rf /app
