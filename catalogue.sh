@@ -9,11 +9,11 @@ echo -e "\e[36m>>>>>>>>> Install NodeJS <<<<<<<<\e[0m"
 yum install nodejs -y
 
 echo -e "\e[36m>>>>>>>>> Add Application User <<<<<<<<\e[0m"
-id $(app_user)
+id ${app_user}
 if [ $? -ne 0]; then
   useradd ${app_user}
 fi
-useradd "${app_user}"
+
 
 echo -e "\e[36m>>>>>>>>> Create Application Directory <<<<<<<<\e[0m"
 rm -rf /app
