@@ -1,1 +1,1 @@
-app_user=$1
+app_user=$?
